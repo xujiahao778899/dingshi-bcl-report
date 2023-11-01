@@ -1,0 +1,12 @@
+file_to_check="/data/bioinfo/xujh/230928_A00602_0656_AHJNTCDSX7/CopyComplete_2.txt"
+
+while true; do
+    if [ -f "$file_to_check" ]; then
+        echo "文件 $file_to_check 已经存在。执行命令..."
+        bash /data/bioinfo/xujh/bcl_wdl/run.bash
+        break # 执行完命令后退出循环
+    else
+        echo "文件 $file_to_check 不存在。等待10秒后重新检查..."
+        sleep 20  # 等待60秒后继续检查
+    fi
+done
